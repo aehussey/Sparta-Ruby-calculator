@@ -1,6 +1,6 @@
-# puts "Enter your name"
-# name = gets.chomp
-# puts "Hello #{name}, welcome to the calculator"
+puts "Enter your name"
+name = gets.chomp
+puts "Hello #{name}, welcome to the calculator"
 
 puts "Would you like to use the (a) advanced, (b) basic, (c) BMI or (d) Trip Calculator?"
 type = gets.chomp
@@ -73,7 +73,43 @@ elsif type == "c"
     puts "Your BMI is #{(float_weight/(float_height/100) ** 2)}"
 
   end
-elsif type == "d"
-  puts "d"
 
+elsif type == "d"
+  puts "How far are you going? (In Miles)"
+  distance = gets.chomp.to_f
+  puts "What is the fuel efficiency of your car? (In MPG)"
+  fuel_efficiency = gets.chomp.to_f
+  puts "What is your cost per gallon?"
+  cpg = gets.chomp.to_f
+  puts "What will your average speed be? (In MPH)"
+  speed = gets.chomp.to_f
+
+  time = distance/speed
+  cost = (distance / fuel_efficiency) * cpg
+
+
+  if speed <= 60
+
+    puts "The journey will take you #{time} hours and cost you £#{cost}."
+
+  elsif speed > 60
+    fuel_efficiency = fuel_efficiency - 2*(speed - 60)
+
+    if fuel_efficiency > 10
+
+      puts "The journey will take you #{time} hours and cost you £#{cost}."
+
+    elsif fuel_efficiency <= 10 && fuel_efficiency > 0
+      fuel_efficiency = 10
+      puts "The journey will take you #{time} hours and cost you £#{cost}."
+
+
+    else
+      puts "This is invalid"
+      puts fuel_efficiency
+
+    end
+  end
+else
+  puts "Not a valid input"
 end
