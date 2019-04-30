@@ -44,8 +44,35 @@ elsif type == "b"
  puts "#{num1} #{operator} #{num2} = #{eval(string_num1 + operator + num2)}"
 
 elsif type == "c"
-  puts "c"
+  puts "Welcome to the BMI claculator, would you like to use the (a) Imperial System or (b) Metric System"
+  c_type = gets.chomp
 
+  if c_type == "a"
+    puts "What is your weight in pounds?"
+    weight = gets.chomp
+    float_weight = eval(weight).to_f
+
+
+    puts "And what is your height in INCHES (Not feet)?"
+    height = gets.chomp
+    float_height = eval(height).to_f
+
+    puts "Your BMI is #{(float_weight/(float_height) ** 2) * 703}"
+
+
+  elsif c_type == "b"
+    puts "What is your weight in Kilos?"
+    weight = gets.chomp
+    float_weight = eval(weight).to_f
+
+
+    puts "And what is your height in centimeters?"
+    height = gets.chomp
+    float_height = eval(height).to_f
+
+    puts "Your BMI is #{(float_weight/(float_height/100) ** 2)}"
+
+  end
 elsif type == "d"
   puts "d"
 
